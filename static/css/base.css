@@ -1,0 +1,90 @@
+body {
+     margin: 0;
+     padding: 0;
+     background-color: #ffffff;
+     color: #000;
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 18px;
+}
+
+#site {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: justify;
+    max-width: 1123px; /*on définit ici une largeur max du site pour le côté responsive */
+    margin: auto;
+    border-left: 1px none #7e7e7e;
+    border-right: 1px none #7e7e7e;
+}
+header, footer {
+    background-color: #ffffff;
+    text-align: center;
+    color: darkgray;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+nav {
+    background-color: #000;
+}
+
+nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav li {
+     padding: 10px;
+}
+
+nav a {
+   text-decoration: none;
+   color: green-light;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    color: blue;
+}
+
+.container {
+    margin-top: 60px;
+}
+
+#slider {
+    overflow: hidden;
+}
+
+#imagesSlider {
+    display: flex;
+    animation-name: mesImages;
+    animation-duration: 30s;
+    animation-iteration-count: 60s; /* on pourrait mettre infinite */
+}
+
+img {
+    width: 100%; /* les images occupent 100% de l espace qui leur est alloue */
+    flex: 0 0 auto; /* ligne CSS ajoutée pour conserver l'aspect 100% de l'image */
+}
+
+@keyframes mesImages {
+    0% {
+        transform: translateX(0);
+    }
+    33% {
+        transform: translateX(-100%);
+    }
+    66% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+
+}

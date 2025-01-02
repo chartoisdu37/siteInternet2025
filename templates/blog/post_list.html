@@ -1,0 +1,23 @@
+{% extends "_base.html" %}
+
+{% block title %}Articles{% endblock title %}
+
+{% block content %}
+
+{% for post in post_list %}
+    <div class="card">
+        <div class="card_header">
+            {{ post.title }} par {{ post.author }}, le {{ post.date }}
+        </div>
+        <div class="card_body">
+            {{ post.body }}
+        </div>
+        <div class="card_footer">
+            <a href="#">Editer</a> | <a href="#">Supprimer</a>
+        </div>
+    </div>
+    <br />
+{% endfor %}
+
+
+{% endblock content %}

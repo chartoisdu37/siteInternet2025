@@ -1,0 +1,79 @@
+<!-- templates/home.html -->
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Accueil{% endblock title %}
+
+{% block content %}
+<main>
+    <section class="my-5">
+        {% if user.is_authenticated %}
+            Bonjour {{ user.mail }} !
+            <p><a href="{% url 'logout' %}">Se déconnecter</a></p>
+        {% else %}
+            <p>Vous n'êtes pas connecté(e)</p>
+            <a href="{% url 'login' %}">Se connecter</a>
+            <a href="{% url 'signup' %}">S'inscrire</a>
+        {% endif %}
+    </section>
+    <section class="my-5">
+<div class="container-fluid">
+    <div class="row gy=4 gy-md=0">
+        <div class="col-12 col-md-6" >
+            <h1>Hello MAB, c'est moi qui t'écris depuis mon ordinateur !</h1>
+            <h2>C'est magique en fait</h2>
+            <p>l'idée est de permettre tout à chacun de rédiger, mettre à jour, voire supprimer des articles (ou posts), selon plusieurs thématiques prédéfinies et de niveau régional,</p>
+            <p>Il est donné la possibilité à d'autres de commenter chacun des articles rédigés.</p>
+            <button >l'actualité de notre association</button>
+        </div>
+        <div class="col-12 col-md-6">
+            <img class="MonAvatar" src="{% static 'images/MonAvatar.jpg' %}" alt="photo de mon avatar" class="w-100" >
+        </div>
+    </div>
+</div>
+    </section>
+    <section class="my-5">
+<div class="container-fluid">
+    <div class="row gy=4 gy-md=0 ">
+        <div class="col-12 col-md-4">
+    <h1 class="fs-italic">événement 1</h1>
+    <h3>et les afficher les uns sous les autres pour plus de clarté, avec si possible une image pour avoir un rendu plus attractif de la page en question</h3>
+            <p> A voir les activités proposées par le CPIE, graines et canopées ou encore l'asso de la Sépant</p>
+        </div>
+        <div class="col-12 col-md-4">
+    <h1>événement 2</h1>
+    <h3>et les afficher les uns sous les autres pour plus de clarté</h3>
+            <p>A voir le site des Conservatoires d Espaces Naturels pour trouver des chantiers de restauration. </p>
+        </div>
+         <div class="col-12 col-md-4">
+    <h1>événement 3</h1>
+    <h3>et les afficher les uns sous les autres pour plus de clarté</h3>
+        </div>
+
+    </div>
+</div>
+    </section>
+
+    <section class="my-5">
+<div class="container-fluid">
+    <div class="row gy=4 gy-md=0">
+        <div class="col-12 col-md-6">
+            <img class="groupe" src="{% static 'images/ecureuil.jpeg' %}" alt="photo de groupe" class="w-100">
+        </div>
+        <div class="col-12 col-md-6">
+            <h1>Envie de partager un message !</h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Enregistrer">
+            </form>
+        </div>
+    </div>
+</div>
+    </section>
+</main>
+
+<!-- pour le footer, revoir le lien dans openclassrooms bootstrap5 qui concerne les obligations RGPD -->
+
+{% endblock content %}
+
